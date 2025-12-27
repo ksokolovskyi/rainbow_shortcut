@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
-enum RainbowButtonStyle {
-  blue,
-  peach,
-  orange;
-}
+enum RainbowButtonStyle { blue, peach, orange }
 
 class RainbowButton extends StatefulWidget {
   const RainbowButton({
@@ -37,7 +33,7 @@ class _RainbowButtonState extends State<RainbowButton>
     duration: const Duration(milliseconds: 300),
   );
 
-  late final _opacity = Tween<double>(begin: 0, end: 1)
+  late final Animation<double> _opacity = Tween<double>(begin: 0, end: 1)
       .chain(
         CurveTween(
           curve: const Interval(0, 250 / 300, curve: Curves.easeInOut),
@@ -45,68 +41,73 @@ class _RainbowButtonState extends State<RainbowButton>
       )
       .animate(_controller);
 
-  late final _offset = Tween<Offset>(
-    begin: Offset.zero,
-    end: const Offset(0, 2),
-  )
-      .chain(
-        CurveTween(
-          curve: const Interval(100 / 300, 300 / 300, curve: Curves.easeInOut),
-        ),
-      )
-      .animate(_controller);
+  late final Animation<Offset> _offset =
+      Tween<Offset>(
+            begin: Offset.zero,
+            end: const Offset(0, 2),
+          )
+          .chain(
+            CurveTween(
+              curve: const Interval(
+                100 / 300,
+                300 / 300,
+                curve: Curves.easeInOut,
+              ),
+            ),
+          )
+          .animate(_controller);
 
   Gradient get _maskGradient {
     return switch (widget.style) {
       RainbowButtonStyle.blue => const LinearGradient(
-          stops: [0, 0.53, 0.64, 1],
-          colors: [
-            Color(0xFF04EFFE),
-            Color(0xFFB581CF),
-            Color(0xFFDC69C4),
-            Color(0xFFFE5CB3),
-          ],
-        ),
+        stops: [0, 0.53, 0.64, 1],
+        colors: [
+          Color(0xFF04EFFE),
+          Color(0xFFB581CF),
+          Color(0xFFDC69C4),
+          Color(0xFFFE5CB3),
+        ],
+      ),
       RainbowButtonStyle.peach => const LinearGradient(
-          colors: [
-            Color(0xFFFF63A2),
-            Color(0xFFFE7C73),
-            Color(0xFFFF8563),
-          ],
-        ),
+        colors: [
+          Color(0xFFFF63A2),
+          Color(0xFFFE7C73),
+          Color(0xFFFF8563),
+        ],
+      ),
       RainbowButtonStyle.orange => const LinearGradient(
-          colors: [
-            Color(0xFFFE8D54),
-            Color(0xFFFFA32F),
-            Color(0xFFFFB115),
-          ],
-        ),
+        colors: [
+          Color(0xFFFE8D54),
+          Color(0xFFFFA32F),
+          Color(0xFFFFB115),
+        ],
+      ),
     };
   }
 
   Gradient get _backgroundGradient {
     return switch (widget.style) {
       RainbowButtonStyle.blue => const LinearGradient(
-          colors: [
-            Color(0xFF032E31),
-            Color(0xFF211A2A),
-            Color(0xFF30151E),
-          ],
-        ),
+        colors: [
+          Color(0xFF032E31),
+          Color(0xFF211A2A),
+          Color(0xFF30151E),
+        ],
+      ),
       RainbowButtonStyle.peach => const LinearGradient(
-          colors: [
-            Color(0xFF33161C),
-            Color(0xFF331917),
-            Color(0xFF331B12),
-          ],
-        ),
+        colors: [
+          Color(0xFF33161C),
+          Color(0xFF331917),
+          Color(0xFF331B12),
+        ],
+      ),
       RainbowButtonStyle.orange => const LinearGradient(
-          colors: [
-            Color(0xFF331E0E),
-            Color(0xFF332009),
-            Color(0xFF332305),
-          ],
-        ),
+        colors: [
+          Color(0xFF331E0E),
+          Color(0xFF332009),
+          Color(0xFF332305),
+        ],
+      ),
     };
   }
 

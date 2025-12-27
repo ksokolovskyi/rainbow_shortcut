@@ -19,9 +19,10 @@ class _TitleState extends State<Title> with SingleTickerProviderStateMixin {
     duration: const Duration(milliseconds: 400),
   );
 
-  late final _opacity = Tween<double>(begin: 0, end: 1)
-      .chain(CurveTween(curve: Curves.easeInOut))
-      .animate(_controller);
+  late final Animation<double> _opacity = Tween<double>(
+    begin: 0,
+    end: 1,
+  ).chain(CurveTween(curve: Curves.easeInOut)).animate(_controller);
 
   @override
   void initState() {

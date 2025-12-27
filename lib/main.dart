@@ -13,7 +13,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final _isLogoVisible = ValueNotifier(false);
+  final ValueNotifier<bool> _isLogoVisible = ValueNotifier(false);
 
   @override
   void dispose() {
@@ -51,7 +51,7 @@ class _AppState extends State<App> {
                 },
                 child: FlutterLogo(
                   size: 130,
-                  textColor: Colors.white.withOpacity(0.8),
+                  textColor: Colors.white.withValues(alpha: 0.8),
                   style: FlutterLogoStyle.horizontal,
                 ),
               ),

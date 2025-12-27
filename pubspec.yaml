@@ -1,21 +1,21 @@
 name: rainbow_shortcut
 description: "Rainbow Shortcut"
-publish_to: 'none'
+publish_to: none
 version: 1.0.0
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
+  sdk: ^3.9.2
 
 dependencies:
   flutter:
     sdk: flutter
-  vector_graphics: ^1.1.11+1
+  vector_graphics: ^1.1.19
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  vector_graphics_compiler: ^1.1.11+1
-  very_good_analysis: ^6.0.0
+  vector_graphics_compiler: ^1.1.19
+  very_good_analysis: ^10.0.0
 
 flutter:
   uses-material-design: true

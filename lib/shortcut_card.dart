@@ -16,9 +16,9 @@ class ShortcutCard extends StatefulWidget {
 }
 
 class _ShortcutCardState extends State<ShortcutCard> {
-  final _isShiftPressed = ValueNotifier(false);
-  final _isOptionPressed = ValueNotifier(false);
-  final _isRPressed = ValueNotifier(false);
+  final ValueNotifier<bool> _isShiftPressed = ValueNotifier(false);
+  final ValueNotifier<bool> _isOptionPressed = ValueNotifier(false);
+  final ValueNotifier<bool> _isRPressed = ValueNotifier(false);
 
   late final _isButtonPressed = Listenable.merge(
     [_isShiftPressed, _isOptionPressed, _isRPressed],
